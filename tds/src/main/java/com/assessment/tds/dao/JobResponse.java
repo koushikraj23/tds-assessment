@@ -6,11 +6,13 @@ import com.assessment.tds.model.Department;
 
 public interface JobResponse {
 	
-	String getJobTitleName();
+	@Value("#{target.jobTitleName}")
+	String getjob_title_name();
 
-	String getJobTitleCode();
+	@Value("#{target.jobTitleCode}")
+	String getjob_title_code();
 
 	@Value("#{target.department.departmentName}")
-	String getDepartmentName();
+	String getdepartment_name();
 
 }

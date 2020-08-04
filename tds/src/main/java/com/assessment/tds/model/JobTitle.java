@@ -14,6 +14,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "job_title")
 public class JobTitle {
 
+
+	@Id
+	@Column(name = "job_title_code")
+	private int jobTitleCode;
+	/*
+	 * @Column(name = "department_code") private int departmentCode;
+	 */
+	@Column(name = "job_title_name")
+	private String jobTitleName;
+
+	
+	
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "department_code", nullable = false)
 	@JsonIgnore
@@ -27,15 +39,8 @@ public class JobTitle {
 		this.department = department;
 	}
 
-	@Id
-	@Column(name = "job_title_code")
-	private int jobTitleCode;
-	/*
-	 * @Column(name = "department_code") private int departmentCode;
-	 */
-	@Column(name = "job_title_name")
-	private String jobTitleName;
-
+	
+	
 	public JobTitle() {
 		super();
 		// TODO Auto-generated constructor stub

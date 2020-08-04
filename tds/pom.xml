@@ -36,7 +36,10 @@
     <type>pom</type>
     <scope>runtime</scope>
   </dependency>
-
+	<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,6 +52,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
 	</dependencies>
 
 	<build>
