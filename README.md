@@ -64,4 +64,8 @@ To import a project as a general project:
 - http://localhost:8080/GET/employees/active
 - http://localhost:8080/GET/employees?department_name=[department_name]
 
+## Output ScreenShots
+
+Have captured output of various outputs and errors.
+* [Output](https://github.com/koushikraj23/tds-assessment/tree/master/tds/src/main/resources/static/image/output)
 
