@@ -14,18 +14,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "job_title")
 public class JobTitle {
 
-
 	@Id
 	@Column(name = "job_title_code")
 	private int jobTitleCode;
-	/*
-	 * @Column(name = "department_code") private int departmentCode;
-	 */
+
 	@Column(name = "job_title_name")
 	private String jobTitleName;
-
 	
-	
+	//represent relationship between two tables
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "department_code", nullable = false)
 	@JsonIgnore
@@ -39,18 +35,15 @@ public class JobTitle {
 		this.department = department;
 	}
 
-	
-	
 	public JobTitle() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public JobTitle(Department department, int jobTitleCode, int departmentCode, String jobTitleName) {
+	public JobTitle(Department department, int jobTitleCode, String jobTitleName) {
 		super();
 		this.department = department;
 		this.jobTitleCode = jobTitleCode;
-//		this.departmentCode = departmentCode;
 		this.jobTitleName = jobTitleName;
 	}
 
@@ -62,14 +55,6 @@ public class JobTitle {
 		this.jobTitleCode = jobTitleCode;
 	}
 
-//	public int getDepartmentCode() {
-//		return departmentCode;
-//	}
-//
-//	public void setDepartmentCode(int departmentCode) {
-//		this.departmentCode = departmentCode;
-//	}
-
 	public String getJobTitleName() {
 		return jobTitleName;
 	}
@@ -78,12 +63,5 @@ public class JobTitle {
 		this.jobTitleName = jobTitleName;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("First name : ").append(this.jobTitleName).append("\n");
-		sb.append("Last name : ").append(this.jobTitleName).append("\n");
-		sb.append("Email : ").append(this.jobTitleName).append("\n");
-		return sb.toString();
-	}
+
 }

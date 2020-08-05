@@ -6,22 +6,37 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 
 public class CustomError {
- 
-    private HttpStatus httpStatus;
-   private int httpCode;
-    private String message;
-//    private String path;
-//    "timestamp": "2020-08-04T00:17:59.263+00:00",
-//    "status": 404,
-//    "error": "Not Found",
-//    "message": "",
-//    "path": "/GET/ba/"
-    public HttpStatus getHttpStatus() {
-		return httpStatus;
+	private int status;
+	private HttpStatus error;
+	private String message;
+
+	public HttpStatus getError() {
+		return error;
 	}
 
-	public void setHttpStatus(HttpStatus httpStatus) {
-		this.httpStatus = httpStatus;
+	public CustomError(HttpStatus error, String message) {
+		super();
+		this.error = error;
+		this.status = error.value();
+		;
+		this.message = message;
+	}
+
+	public CustomError() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public void setError(HttpStatus error) {
+		this.error = error;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 	public String getMessage() {
@@ -31,22 +46,5 @@ public class CustomError {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-
-
-	public CustomError(HttpStatus status, String message) {
-        super();
-        this.httpStatus = status;
-        this.message = message;
-        this.httpCode=status.value();
-    }
-
-	public int getHttpCode() {
-		return httpCode;
-	}
-
-	public void setHttpCode(int httpCode) {
-		this.httpCode = httpCode;
-	}
- 
 
 }

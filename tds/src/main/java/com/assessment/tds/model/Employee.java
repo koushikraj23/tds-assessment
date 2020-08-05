@@ -7,9 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -20,8 +18,6 @@ public class Employee {
 	private int id;
 	@Column(name = "badge_number")
 	private int badgeNo;
-//	@Column(name = "job_title_code")
-//	private int jobtitleCode;
 	@Column(name = "firstname")
 	private String firstName;
 	@Column(name = "lastname")
@@ -33,14 +29,30 @@ public class Employee {
 	@Column(name = "leave_date")
 	private Date leaveDate;
 
-	
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
-	@JoinColumn(name = "job_title_code",nullable = false )
+	@JoinColumn(name = "job_title_code", nullable = false)
 	@JsonIgnore
 	private JobTitle jobTitle;
 
-	
-	
+	public Employee() {
+		super();
+
+		// TODO Auto-generated constructor stub
+	}
+
+	public Employee(int id, int badgeNo, String firstName, String lastName, String countryCode, Date startDate,
+			Date leaveDate, JobTitle jobTitle) {
+		super();
+		this.id = id;
+		this.badgeNo = badgeNo;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.countryCode = countryCode;
+		this.startDate = startDate;
+		this.leaveDate = leaveDate;
+		this.jobTitle = jobTitle;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -56,14 +68,6 @@ public class Employee {
 	public void setBadgeNo(int badgeNo) {
 		this.badgeNo = badgeNo;
 	}
-
-//	public int getJobtitleCode() {
-//		return jobtitleCode;
-//	}
-//
-//	public void setJobtitleCode(int jobtitleCode) {
-//		this.jobtitleCode = jobtitleCode;
-//	}
 
 	public String getFirstName() {
 		return firstName;
@@ -87,6 +91,7 @@ public class Employee {
 
 	public void setCountryCode(String countryCode) {
 		this.countryCode = countryCode;
+
 	}
 
 	public Date getStartDate() {
@@ -112,7 +117,5 @@ public class Employee {
 	public void setJobTitle(JobTitle jobTitle) {
 		this.jobTitle = jobTitle;
 	}
-
-
 
 }

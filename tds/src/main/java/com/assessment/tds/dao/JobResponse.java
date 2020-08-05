@@ -2,10 +2,9 @@ package com.assessment.tds.dao;
 
 import org.springframework.beans.factory.annotation.Value;
 
-import com.assessment.tds.model.Department;
-
+//Interface to customize the response of Job title class(JPA projection)
 public interface JobResponse {
-	
+
 	@Value("#{target.jobTitleName}")
 	String getjob_title_name();
 
